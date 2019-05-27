@@ -1,0 +1,71 @@
+{
+  "name": "sample",
+  "displayName": "sample",
+  "pages": [
+    {
+      "title": "Apple",
+      "lines": [
+        "Apple",
+        "",
+        "Category",
+        "[Fruit]",
+        "",
+        "Price",
+        "$3",
+        ""
+      ]
+    },
+    {
+      "title": "Orange",
+      "lines": [
+        "Orange",
+        "",
+        "Category",
+        "[Fruit]",
+        "",
+        "Price",
+        "$4",
+        ""
+      ]
+    },
+    {
+      "title": "Grape",
+      "lines": [
+        "Grape",
+        "",
+        "Category",
+        "[Fruit]",
+        "",
+        "Price",
+        "$5",
+        ""
+      ]
+    },
+    {
+      "title": "Carort",
+      "lines": [
+        "Carort",
+        "",
+        "Category",
+        "[Vegetable]",
+        "",
+        "Price",
+        "$1",
+        ""
+      ]
+    },
+    {
+      "title": "Spinach",
+      "lines": [
+        "Spinach",
+        "",
+        "Category",
+        "[Vegetable]",
+        "",
+        "Price",
+        "$2",
+        ""
+      ]
+    }
+  ]
+}

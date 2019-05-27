@@ -1,0 +1,25 @@
+{
+  "name": "csv-to-scrapbox",
+  "version": "0.0.1",
+  "description": "Convert CSV file to a Scrapbox project",
+  "main": "",
+  "author": "Isshu Rakusai",
+  "repository": "https://github.com/nota/csv-to-scrapbox",
+  "license": "ISC",
+  "private": true,
+  "engines": {
+    "node": "10.x",
+    "npm": "6.x"
+  },
+  "scripts": {
+    "start": "node index.js",
+    "test": "standard"
+  },
+  "dependencies": {
+    "csv-parse": "^4.4.1",
+    "ejs": "^2.6.1"
+  },
+  "devDependencies": {
+    "standard": "^12.0.1"
+  }
+}

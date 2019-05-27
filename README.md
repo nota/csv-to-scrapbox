@@ -1,0 +1,30 @@
+# CSV to Scrapbox
+
+## See sample demo
+
+Run
+`$ node index.js sample.csv`
+
+Then you will get
+`sample-scrapbox.json`
+
+## How to use
+
+### Prepare template
+
+Write template in [EJS](https://ejs.co/) format.
+Place the CSV and the template file in the root directrory of the repository.
+The template's file name must be `xxx-template.csv`
+
+```
+xxx.csv
+xxx-template.csv
+```
+
+Run
+`$ node index.js xxx.csv`
+
+Then you will get
+`xxx-scrapbox.json`
+
+Note: You can use Non-ascii column name for the CSV
