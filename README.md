@@ -12,7 +12,7 @@ Then you will get
 
 ### Prepare template
 
-Write template in [EJS](https://ejs.co/) format.
+Write a template in [EJS](https://ejs.co/) format.
 Place the CSV and the template file in the root directrory of the repository.
 The template's file name must be `xxx-template.csv`
 
@@ -27,4 +27,4 @@ Run
 Then you will get
 `xxx-scrapbox.json`
 
-Note: You can use Non-ascii column name for the CSV
+Note: You can use Non-ascii column name in the CSV
