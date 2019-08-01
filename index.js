@@ -25,10 +25,15 @@ for (const row of rows) {
   for (let i = 0; i < row.length; i++) {
     columns[columnNames[i]] = row[i]
   }
-  console.log(columns)
   const text = ejs.render(template, columns)
   const title = text.split('\n', 1)[0] // use first line
 
+  if (!title) {
+    console.warn('skip: empty title')
+    continue
+  }
+
+  console.log(title)
   const page = { title, text }
   scrapboxPages.push(page)
 }
