@@ -20,6 +20,6 @@
     "ejs": "^2.6.1"
   },
   "devDependencies": {
-    "standard": "^12.0.1"
+    "standard": "^14.3.1"
   }
 }

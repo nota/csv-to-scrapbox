@@ -21,7 +21,7 @@ const columnNames = rows.shift().map(c => c.trim())
 console.log('Columns:', columnNames)
 
 for (const row of rows) {
-  let columns = {}
+  const columns = {}
   for (let i = 0; i < row.length; i++) {
     columns[columnNames[i]] = row[i]
   }
