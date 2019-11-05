@@ -1,5 +1,9 @@
 # CSV to Scrapbox
 
+## Install
+
+`$ npm install`
+
 ## See sample demo
 
 Run
@@ -18,7 +22,7 @@ The template's file name must be `xxx-template.csv`
 
 ```
 xxx.csv
-xxx-template.csv
+xxx-template.ejs
 ```
 
 Run
