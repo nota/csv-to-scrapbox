@@ -20,6 +20,9 @@ const scrapboxPages = []
 const columnNames = rows.shift().map(c => c.trim())
 console.log('Columns:', columnNames)
 
+let row_num = 0
+let skipped = 0
+let added = 0
 for (const row of rows) {
   const columns = {}
   for (let i = 0; i < row.length; i++) {
@@ -27,16 +30,22 @@ for (const row of rows) {
   }
   const text = ejs.render(template, columns)
   const title = text.split('\n', 1)[0] // use first line
+  row_num++
 
   if (!title) {
-    console.warn('skip: empty title')
+    console.warn(row_num, 'skip: empty title')
+    skipped++
     continue
   }
 
-  console.log(title)
+  added++
+
+  console.log(row_num, title)
   const page = { title, text }
   scrapboxPages.push(page)
 }
+
+console.log('added', added, ', skipped', skipped)
 
 saveScrapboxProject({ projectName, scrapboxPages })
 
