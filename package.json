@@ -15,7 +15,8 @@
   },
   "dependencies": {
     "csv-parse": "^4.4.7",
-    "ejs": "^2.7.1"
+    "ejs": "^2.7.1",
+    "html2sb-compiler": "^4.0.2"
   },
   "devDependencies": {
     "standard": "^14.3.1"

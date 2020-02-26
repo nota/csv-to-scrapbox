@@ -1,7 +1,8 @@
 const fs = require('fs')
 const path = require('path')
-const parse = require('csv-parse/lib/sync')
+const parseCSV = require('csv-parse/lib/sync')
 const ejs = require('ejs')
+const { toScrapbox, parse } = require('html2sb-compiler')
 
 const csvPath = process.argv[2]
 if (!csvPath) {
@@ -12,7 +13,7 @@ if (!csvPath) {
 const projectName = path.basename(csvPath, '.csv')
 console.log('Got projectName:', projectName)
 const raw = fs.readFileSync(csvPath)
-const rows = parse(raw)
+const rows = parseCSV(raw)
 
 const template = fs.readFileSync(`${projectName}-template.ejs`, 'utf-8')
 
@@ -20,27 +21,37 @@ const scrapboxPages = []
 const columnNames = rows.shift().map(c => c.trim())
 console.log('Columns:', columnNames)
 
-let row_num = 0
+let rowNum = 0
 let skipped = 0
 let added = 0
 for (const row of rows) {
   const columns = {}
   for (let i = 0; i < row.length; i++) {
-    columns[columnNames[i]] = row[i]
+    let text = row[i]
+    const isHtml = /<\w+.*>/.test(text)
+    if (isHtml) {
+      try {
+        const parsed = parse(text)[0]
+        text = toScrapbox(parsed).lines.join('\n')
+      } catch (err) {
+        console.warn(err)
+      }
+    }
+    columns[columnNames[i]] = text
   }
   const text = ejs.render(template, columns)
   const title = text.split('\n', 1)[0] // use first line
-  row_num++
+  rowNum++
 
   if (!title) {
-    console.warn(row_num, 'skip: empty title')
+    console.warn(rowNum, 'skip: empty title')
     skipped++
     continue
   }
 
   added++
 
-  console.log(row_num, title)
+  console.log(rowNum, title)
   const page = { title, text }
   scrapboxPages.push(page)
 }
